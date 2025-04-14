@@ -1,0 +1,171 @@
+{
+    "name": "John Doe",
+    "babel_language": "english",
+    "about_me": "I am a good worker for different things. My strengths include various skills. I like doing this and that.",
+    "contact": {
+        "address": "Examplestreet 42,\\\\ Exampletown",
+        "mail": "example@gmail.com",
+        "phone": "0123456789",
+        "github": "github"
+    },
+    "degrees": [
+        {
+            "name": "Master of Science (M.Sc.) in Flat Earth",
+            "institution": "Planet Institute of Mythology and Imagination (PIMI)",
+            "date": {
+                "year": 2012,
+                "year_end": 2015
+            },
+            "information": "Focus on the solar cicle on a flat earth",
+            "grade": 4.0
+        },
+        {
+            "name": "Bachelor of Science (B.Sc.) in Homeopathy",
+            "institution": "Medical Institute of Scientifc Information (MIS Information)",
+            "date": {
+                "year": 1796,
+                "year_end": 2012
+            },
+            "information": "Focus on applications of the Placebo effect",
+            "grade": 4.0
+        }
+    ],
+    "experience": [
+        {
+            "name": "Senior Salesman",
+            "institution": "Super Cancer Antidote Massages Ltd. (SCAM)",
+            "date": {
+                "year": 2020,
+                "year_end": 2025
+            },
+            "information": "Selling useless things to desperate people",
+            "grade": null,
+            "name_description": null,
+            "source": null
+        },
+        {
+            "name": "Junior Salesman",
+            "institution": "Super Cardiac Antimatter Meditations Ltc. (SCAM)",
+            "date": {
+                "year": 2015,
+                "year_end": 2020
+            },
+            "information": "Selling useless things to naive people",
+            "grade": null,
+            "name_description": null,
+            "source": null
+        },
+        {
+            "name": "Master's Thesis",
+            "institution": "Planet Institute of Mythology and Imagination (PIMI)",
+            "date": {
+                "year": 2014,
+                "year_end": 2015
+            },
+            "information": "Using scientific terms to spread misinformation",
+            "grade": 1.0,
+            "name_description": "Quantum Applications of Spontanous Sun Creations and Destructions Following the Diel Cycle",
+            "source": "See DOI:~\\href{https://doi.org/}{666/NotARealDOI/424242}"
+        },
+        {
+            "name": "Research Assistant",
+            "institution": "Planet Institute of Mythology and Imagination (PIMI)",
+            "date": {
+                "year": 2013,
+                "year_end": null
+            },
+            "information": "Combining real scientific terms into meaningless keywords",
+            "grade": null,
+            "name_description": null,
+            "source": null
+        },
+        {
+            "name": "Bachelor's Thesis",
+            "institution": "Medical Institute of Scientifc Information (MIS Information)",
+            "date": {
+                "year": 2012,
+                "year_end": null
+            },
+            "information": "Proof that homeopathy works better than just praying",
+            "grade": 1.0,
+            "name_description": null,
+            "source": null
+        }
+    ],
+    "skills": {
+        "Programming": [
+            {
+                "name": "Whitespace",
+                "rating": 8.0,
+                "rating_description": "Very Good",
+                "information": "Many years of experience"
+            },
+            {
+                "name": "Chicken",
+                "rating": 6.0,
+                "rating_description": "Basic",
+                "information": null
+            },
+            {
+                "name": "Befunge",
+                "rating": 3.0,
+                "rating_description": "Basic",
+                "information": "Lectures & tutorials at university"
+            }
+        ],
+        "Software": [
+            {
+                "name": "VIM",
+                "rating": null,
+                "rating_description": "",
+                "information": null
+            },
+            {
+                "name": "\\LaTeX{}",
+                "rating": null,
+                "rating_description": "",
+                "information": null
+            }
+        ],
+        "Languages": [
+            {
+                "name": "English",
+                "rating": null,
+                "rating_description": "Native",
+                "information": null
+            },
+            {
+                "name": "Latin",
+                "rating": null,
+                "rating_description": "C2",
+                "information": null
+            },
+            {
+                "name": "Esperanto",
+                "rating": null,
+                "rating_description": "B2",
+                "information": null
+            }
+        ],
+        "Personal Strengths": [
+            {
+                "name": "Ruthless",
+                "rating": null,
+                "rating_description": "",
+                "information": null
+            },
+            {
+                "name": "Creative",
+                "rating": null,
+                "rating_description": "",
+                "information": null
+            },
+            {
+                "name": "Funny",
+                "rating": null,
+                "rating_description": "",
+                "information": null
+            }
+        ]
+    }
+}

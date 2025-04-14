@@ -1,0 +1,72 @@
+\documentclass[DIV=18]{medercv2025}
+\usepackage[english]{babel}
+
+\author{John Doe}
+\address{Examplestreet 42,\\ Exampletown}
+\mail{example@gmail.com}
+\phone{0123456789}
+\github{github}
+
+\setmetadata
+
+\begin{document}
+\color{normal}
+
+\maketitle
+
+\begin{paracol}{2}
+
+\section*{\thecontactname}
+\contactinfo
+
+
+\section*{Programming}
+\begin{skills}
+\skillrated{Whitespace}{0.4}{goodskill}
+\skillrated{Chicken}{0.3}{mediumskill}
+\skillrated{Befunge}{0.15}{basicskill}
+\end{skills}
+
+\section*{Software}
+\begin{skills}
+\skilldescribed{VIM}{}
+\skilldescribed{\LaTeX{}}{}
+\end{skills}
+
+\section*{Languages}
+\begin{skills}
+\skilldescribed{English}{Native}
+\skilldescribed{Latin}{C2}
+\skilldescribed{Esperanto}{B2}
+\end{skills}
+
+\section*{Personal Strengths}
+\begin{skills}
+\skilldescribed{Ruthless}{}
+\skilldescribed{Creative}{}
+\skilldescribed{Funny}{}
+\end{skills}
+
+\switchcolumn
+
+\section*{\theaboutmename}
+I am a good worker for different things. My strengths include various skills. I like doing this and that.
+
+\section*{\theexperiencename}
+\begin{events}
+    \event{2020--2025}{Senior Salesman}{Super Cancer Antidote Massages Ltd. (SCAM)\newline{\small Selling useless things to desperate people}}
+    \event{2015--2020}{Junior Salesman}{Super Cardiac Antimatter Meditations Ltc. (SCAM)\newline{\small Selling useless things to naive people}}
+    \event{2014--2015}{Master's Thesis \hfill \grade{1.0}}{Planet Institute of Mythology and Imagination (PIMI)\newline{\small Using scientific terms to spread misinformation}\newline{\footnotesize See DOI:~\href{https://doi.org/}{666/NotARealDOI/424242}}}
+    \event{2013}{Research Assistant}{Planet Institute of Mythology and Imagination (PIMI)\newline{\small Combining real scientific terms into meaningless keywords}}
+    \event{2012}{Bachelor's Thesis \hfill \grade{1.0}}{Medical Institute of Scientifc Information (MIS Information)\newline{\small Proof that homeopathy works better than just praying}}
+\end{events}
+
+\section*{\theeducationname}
+\begin{events}
+    \event{2012--2015}{Master of Science (M.Sc.) in Flat Earth \hfill \grade{4.0}}{Planet Institute of Mythology and Imagination (PIMI)\newline{\small Focus on the solar cicle on a flat earth}}
+    \event{1796--2012}{Bachelor of Science (B.Sc.) in Homeopathy \hfill \grade{4.0}}{Medical Institute of Scientifc Information (MIS Information)\newline{\small Focus on applications of the Placebo effect}}
+\end{events}
+
+\end{paracol}
+
+\end{document}
