@@ -10,7 +10,7 @@ import medercv2025_creator as cv_creator
 # Load curriculum vitae from json
 curriculum_vitae = cv_creator.load("example_cv.json")
 # Convert the curriculum vitae to LaTeX and save it
-save(curriculum_vitae, "example_cv.tex")
+cv_creator.save(curriculum_vitae, "example_cv.tex")
 ```
 The output looks like this:
 ![Preview of example currivulum vitaet](example_cv_preview.png)

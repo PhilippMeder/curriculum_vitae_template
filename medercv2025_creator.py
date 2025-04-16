@@ -175,6 +175,8 @@ class CurriculumVitae:
 
         _latex_lines += [
             "",
+            r"\vspace{\paperheight}",  # Needed for correct coloring
+            "",
             r"\end{paracol}",
             "",
             r"\end{document}"

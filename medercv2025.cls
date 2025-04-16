@@ -68,7 +68,13 @@
 \RequirePackage{paracol}
 \setlength{\columnsep}{1.5cm}
 \columnratio{0.23}[0.75]
-\backgroundcolor{c[0](16pt,0pt)(0.5\columnsep,0pt)}[HTML]{e6e6e6}
+
+% Infinite background with the underpainting column option of paracol,
+% Requires a \vspace{paperheight} at the end of the paracol environment!
+\backgroundcolor{C[0](10000pt,10000pt)(0.5\columnsep,10000pt)}[HTML]{e6e6e6}
+
+% Unused since it works with the underpainting option
+%\backgroundcolor{c[0](16pt,0pt)(0.5\columnsep,0pt)}[HTML]{e6e6e6}
 
 %-----------------------------------------------------------
 % Fonts & layout
