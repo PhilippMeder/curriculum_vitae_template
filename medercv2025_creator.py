@@ -215,7 +215,7 @@ def load_unnested_dataclass_from_dict(cls, data: dict):
 
 def load(filename: str | Path):
     # Load data from a json file
-    with open(filename, mode="r") as file:
+    with open(filename, mode="r", encoding="utf-8") as file:
         data = json.load(file)
 
     # Setup the easy accesible data elements
