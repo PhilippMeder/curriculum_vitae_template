@@ -28,17 +28,67 @@
 % \usetikzlibrary{backgrounds}
 \RequirePackage{float}
 
-% Allow language detection
-\RequirePackage{translations}
-
 % For links
 \RequirePackage[hidelinks]{hyperref}
 
 %-----------------------------------------------------------
-% Colors & columns
+% Language-dependent translations
 %-----------------------------------------------------------
 
+\RequirePackage{translations}
+
+\DeclareTranslationFallback{documenttitle}{Curriculum Vitae}
+\DeclareTranslation{English}{documenttitle}{Curriculum Vitae}
+\DeclareTranslation{German}{documenttitle}{Lebenslauf}
+
+\DeclareTranslationFallback{birthday}{Birthday}
+\DeclareTranslation{English}{birthday}{Birthday}
+\DeclareTranslation{German}{birthday}{Geburtstag}
+
+\DeclareTranslationFallback{nationality}{Nationality}
+\DeclareTranslation{English}{nationality}{Nationality}
+\DeclareTranslation{German}{nationality}{Nationalität}
+
+\DeclareTranslationFallback{address}{Address}
+\DeclareTranslation{English}{address}{Address}
+\DeclareTranslation{German}{address}{Adresse}
+
+\DeclareTranslationFallback{phone}{Phone}
+\DeclareTranslation{English}{phone}{Phone}
+\DeclareTranslation{German}{phone}{Telefon}
+
+\DeclareTranslationFallback{email}{E-Mail}
+\DeclareTranslation{English}{email}{E-Mail}
+\DeclareTranslation{German}{email}{E-Mail}
+
+\DeclareTranslationFallback{github}{Github}
+\DeclareTranslation{English}{github}{Github}
+\DeclareTranslation{German}{github}{Github}
+
+\DeclareTranslationFallback{contact}{Contact}
+\DeclareTranslation{English}{contact}{Contact}
+\DeclareTranslation{German}{contact}{Kontakt}
+
+\DeclareTranslationFallback{aboutme}{About Me}
+\DeclareTranslation{English}{aboutme}{About Me}
+\DeclareTranslation{German}{aboutme}{Über mich}
+
+\DeclareTranslationFallback{education}{Education}
+\DeclareTranslation{English}{education}{Education}
+\DeclareTranslation{German}{education}{Bildungsweg}
+
+\DeclareTranslationFallback{experience}{Professional Experience}
+\DeclareTranslation{English}{experience}{Professional Experience}
+\DeclareTranslation{German}{experience}{Berufliche Erfahrung}
+
+\DeclareTranslationFallback{grade}{Grade}
+\DeclareTranslation{English}{grade}{Grade}
+\DeclareTranslation{German}{grade}{Note}
+
+%-----------------------------------------------------------
 % Colors
+%-----------------------------------------------------------
+
 \RequirePackage[table]{xcolor}
 
 \definecolor{normal}{HTML}{000000}
@@ -64,7 +114,10 @@
 
 \newcommand*{\colorrule}[2]{\textcolor{rule}{\rule{#1}{#2}}}
 
-% For two columns
+%-----------------------------------------------------------
+% Two columns with colors
+%-----------------------------------------------------------
+
 \RequirePackage{paracol}
 \setlength{\columnsep}{1.5cm}
 \columnratio{0.23}[0.75]
@@ -98,6 +151,7 @@
 \newkomafont{titletype}{\bfseries\color{headertitle}}
 \setkomafont{titlehead}{\usekomafont{titletype}\Large\MakeUppercase}
 \setkomafont{title}{\usekomafont{titletype}\huge\MakeUppercase}
+\newkomafont{titleinfo}{\usekomafont{titletype}\normalsize}
 \setkomafont{section}{\large\bfseries\color{section}}
 \newkomafont{infolabel}{\color{infolabel}}
 \newkomafont{label}{\color{label}}
@@ -118,14 +172,10 @@
 \renewcommand*{\pagemark}{}
 
 %-----------------------------------------------------------
-% Define necessary variables and language dependent names
+% Define necessary variables and language-dependent names
 %-----------------------------------------------------------
 
-\newcommand*{\thetitle}{%
-    \ifcurrentbaselanguage{English}%
-    {Curriculum Vitae}%
-    {Lebenslauf}%
-}
+\newcommand*{\thetitle}{\GetTranslation{documenttitle}}
 \renewcommand*{\title}[1]{\renewcommand*{\thetitle}{#1}}
 
 \newcommand*{\theauthor}{}
@@ -134,136 +184,87 @@
 \newcommand*{\theauthorimage}{author}
 \newcommand*{\authorimage}[1]{\renewcommand*{\theauthorimage}{#1}}
 
-\newcommand*{\theaddressname}{%
-    \ifcurrentbaselanguage{English}%
-    {Address}%
-    {Adresse}%
-}
-\newcommand*{\theaddress}{}
-\newcommand*{\address}[1]{\renewcommand*{\theaddress}{#1}}
-
-\newcommand*{\thebirthdayname}{%
-    \ifcurrentbaselanguage{English}%
-    {Birthday}%
-    {Geburtstag}%
-}
+\newcommand*{\thebirthdayname}{\GetTranslation{birthday}}
 \newcommand*{\thebirthday}{}
 \newcommand*{\birthday}[1]{\renewcommand*{\thebirthday}{#1}}
 
-\newcommand*{\thephonename}{%
-    \ifcurrentbaselanguage{English}%
-    {Phone}%
-    {Telefon}%
-}
+\newcommand*{\thenationalityname}{\GetTranslation{nationality}}
+\newcommand*{\thenationality}{}
+\newcommand*{\nationality}[1]{\renewcommand*{\thenationality}{#1}}
+
+\newcommand*{\theaddressname}{\GetTranslation{address}}
+\newcommand*{\theaddress}{}
+\newcommand*{\address}[1]{\renewcommand*{\theaddress}{#1}}
+
+\newcommand*{\thephonename}{\GetTranslation{phone}}
 \newcommand*{\thephone}{}
 \newcommand*{\phone}[1]{\renewcommand*{\thephone}{#1}}
 
-\newcommand*{\themailname}{%
-    \ifcurrentbaselanguage{English}%
-    {E-Mail}%
-    {E-Mail}%
-}
+\newcommand*{\themailname}{\GetTranslation{email}}
 \newcommand*{\themail}{}
 \newcommand*{\mail}[1]{\renewcommand*{\themail}{#1}}
 
-\newcommand*{\thegithubname}{%
-	\ifcurrentbaselanguage{English}%
-	{Github}%
-	{Github}%
-}
+\newcommand*{\thegithubname}{\GetTranslation{github}}
 \newcommand*{\thegithub}{}
 \newcommand*{\github}[1]{\renewcommand*{\thegithub}{#1}}
 
-\newcommand*{\thegradename}{%
-	\ifcurrentbaselanguage{English}%
-	{Grade}%
-	{Note}%
-}
+\newcommand*{\thegradename}{\GetTranslation{grade}}
 \newcommand*{\grade}[1]{\thegradename:~#1}
 
-\newcommand*{\theaboutmename}{%
-	\ifcurrentbaselanguage{English}%
-	{About Me}%
-	{Über mich}%
-}
+\newcommand*{\theaboutmename}{\GetTranslation{aboutme}}
 
-\newcommand*{\theexperiencename}{%
-	\ifcurrentbaselanguage{English}%
-	{Professional Experience}%
-	{Berufliche Erfahrung}%
-}
+\newcommand*{\theexperiencename}{\GetTranslation{experience}}
 
-\newcommand*{\theeducationname}{%
-	\ifcurrentbaselanguage{English}%
-	{Education}%
-	{Bildungsweg}%
-}
+\newcommand*{\theeducationname}{\GetTranslation{education}}
 
-\newcommand*{\thecontactname}{%
-	\ifcurrentbaselanguage{English}%
-	{Contact}%
-	{Kontakt}%
-}
+\newcommand*{\thecontactname}{\GetTranslation{contact}}
 
 %-----------------------------------------------------------
 % Setup authorinfo commands
 %-----------------------------------------------------------
 
-\newcommand*{\infoelement}[2]{\ifx #2\empty\else {\usekomafont{infolabel}#1} & #2 \\ \fi}
-
-\newcommand*{\authorinfo}{
-    \begin{tabular}{ll}
-        & \\
-        \infoelement{\thebirthdayname}{\thebirthday}
-        \infoelement{\theaddressname}{\theaddress}        
-        \infoelement{\themailname}{\themail}
-        \infoelement{\thephonename}{\thephone}
-        \infoelement{\thegithubname}{\href{https://github.com/\thegithub}{\thegithub}}
-    \end{tabular}
+\newcommand*{\authorinfo}{%
+	\ifx \thebirthday\empty\else \thebirthdayname:~\thebirthday~| \fi%
+	\ifx \thenationality\empty\else \thenationalityname:~\thenationality \\ \fi%
+%	\begin{tabular}{@{}ll}
+%		\ifx \thebirthday\empty\else \thebirthdayname & \thebirthday \\ \fi
+%		\ifx \thenationality\empty\else \thenationalityname & \thenationality \\ \fi
+%	\end{tabular}
 }
 
-\newcommand*{\twocolumncontactinfo}{
-	\begin{tabularx}{\textwidth}{llXll}
-		{\usekomafont{infolabel}\themailname} & \themail & &
-		{\usekomafont{infolabel}\theaddressname} & \theaddress \\
-		{\usekomafont{infolabel}\thegithubname} & \href{https://github.com/\thegithub}{\thegithub} & &
-		{\usekomafont{infolabel}\thephonename} & \thephone 
-	\end{tabularx}
+\newcommand*{\contactinfo}{%
+	\begin{tabular}{l}%
+		{\usekomafont{infolabel}\theaddressname} \\ \theaddress \\%
+		{\usekomafont{infolabel}\themailname} \\		\themail \\%
+		{\usekomafont{infolabel}\thephonename} \\		\thephone \\%
+		\ifx \thegithub\empty\else {\usekomafont{infolabel}\thegithubname} \\ \href{https://github.com/\thegithub}{\thegithub} \\ \fi%
+	\end{tabular}%
 }
 
-\newcommand*{\contactinfo}{
-	\begin{tabular}{l}
-		{\usekomafont{infolabel}\theaddressname} \\ \theaddress \\
-		{\usekomafont{infolabel}\themailname} \\
-		\themail \\	
-		{\usekomafont{infolabel}\thephonename} \\
-		\thephone \\
-		{\usekomafont{infolabel}\thegithubname} \\ \href{https://github.com/\thegithub}{\thegithub} \\ 
-	\end{tabular}
-}
-
-\newcommand*{\authorpicture}{
-    \begin{tikzpicture}
-        \node[inner sep=0] (img) at (0,0) {\includegraphics[height=3cm]{\theauthorimage}};
-        \draw[frame, ultra thick] (img.south west) rectangle (img.north east);
-    \end{tikzpicture}
+\newcommand*{\authorpicture}[1]{%
+    \begin{tikzpicture}%
+        \node[inner sep=0] (img) at (0,0) {\includegraphics[height=#1]{\theauthorimage}};%
+        \draw[frame, ultra thick] (img.south west) rectangle (img.north east);%
+    \end{tikzpicture}%
 }
 
 %-----------------------------------------------------------
 % Update the 'maketitle' command to make the header
 %-----------------------------------------------------------
+\newlength{\leftcolumnwidth}
+\setlength{\leftcolumnwidth}{0.23\linewidth}
+\addtolength{\leftcolumnwidth}{0.95cm}
 
-\renewcommand*{\@maketitle}
-{
+\renewcommand*{\@maketitle}{%
 \tikz[remember picture,overlay] {%
 	\node[rectangle, fill=header, anchor=north, minimum width=\paperwidth, minimum height=3.5cm](header) at (current page.north){};%
 	\draw[frame, ultra thick] (header.south west) rectangle (header.south east);
-	\node[draw=none, anchor=west](picture) at (current page text area.north west) {\authorpicture};%  
-%	\node[draw=none, anchor=west, shift=({0.23\textwidth+1.5cm,0})](name) at (current page text area.north west) {\usekomafont{title} \theauthor};% 
-%	}
-	\node[draw=none, shift=({1cm,0})](name) at (current page text area.north) {\usekomafont{title} \theauthor};% 
-}
-	\vspace{2cm}
+	\node[draw=none, anchor=west, shift=({0,-0.1cm})](picture) at (current page text area.north west) {\authorpicture{3cm}};%  
+%	\node[draw=none, shift=({0.9cm,0})](name) at (current page text area.north) {\usekomafont{title} \theauthor};% 
+	\node[draw=none, shift=({\leftcolumnwidth,0.2cm}), anchor=west](name) at (picture.west) {\usekomafont{title} \theauthor};% 
+	\node[draw=none, anchor=north west, shift=({-0.1cm,0})](info) at (name.south west) {\usekomafont{titleinfo} \authorinfo};% 
+}%
+	\vspace{2cm}%
 }
 
 %-----------------------------------------------------------
@@ -285,37 +286,60 @@
 % Define colorbar needed for the next command (\skillrated)
 \newlength{\skillrulewidth}
 \setlength{\skillrulewidth}{0.5em}
-\newcommand*{\skillrule}[2]{
-{\color{#2}\rule[\baselineskip]{#1\linewidth}{\skillrulewidth}}
+\newcommand*{\skillrule}[2]{%
+{\color{#2}\rule[\baselineskip]{#1\linewidth}{\skillrulewidth}}%
 }
 
 % Define command for a skill with a visual rating of the skill level, use as: \skillrated{skillname}{rating}{color}
 \newcommand*{\skillrated}[3]{\cellcolor{skillbackground}\usekomafont{skilllabel}#1 & \skillrule{#2}{#3} \\}
 
 %-----------------------------------------------------------
+% Command to set PDF metadata
+% Because of \GetTranslation, this has to be inside the document environment!
+%-----------------------------------------------------------
+
+\newcommand*{\setmetadata}{%
+	\hypersetup{%
+		pdftitle={\thetitle:~\theauthor},%
+		pdfsubject={\thetitle},%
+		pdfauthor={\theauthor},%
+		pdfkeywords={\thetitle, \theauthor}%
+	}%
+}
+
+%-----------------------------------------------------------
 % Outdated but maybe inspiring when changing the layout
 %-----------------------------------------------------------
+
+%\newcommand*{\infoelement}[2]{\ifx #2\empty\else {\usekomafont{infolabel}#1} & #2 \\ \fi}
+%
+%\newcommand*{\authorinfo}{
+%	\begin{tabular}{ll}
+%		& \\
+%		\infoelement{\thebirthdayname}{\thebirthday}
+%		\infoelement{\theaddressname}{\theaddress}        
+%		\infoelement{\themailname}{\themail}
+%		\infoelement{\thephonename}{\thephone}
+%		\infoelement{\thegithubname}{\href{https://github.com/\thegithub}{\thegithub}}
+%	\end{tabular}
+%}
+%
+%\newcommand*{\twocolumncontactinfo}{
+%	\begin{tabularx}{\textwidth}{llXll}
+%		{\usekomafont{infolabel}\themailname} & \themail & &
+%		{\usekomafont{infolabel}\theaddressname} & \theaddress \\
+%		{\usekomafont{infolabel}\thegithubname} & \href{https://github.com/\thegithub}{\thegithub} & &
+%		{\usekomafont{infolabel}\thephonename} & \thephone 
+%	\end{tabularx}
+%}
 
 % \newenvironment{events}{\begin{tabularx}{\linewidth}{rX}}{\end{tabularx}}
 %\newenvironment{languages}{\begin{tabular}{lll}}{\end{tabular}}
 %\newcommand*{\skillrule}[2]{
-%{\color{#2}\rule[\baselineskip]{#1\linewidth}{\skillrulewidth}}
-%}
+	%{\color{#2}\rule[\baselineskip]{#1\linewidth}{\skillrulewidth}}
+	%}
 
 %\newcommand*{\skill}[3]{\cellcolor{skillbackground}\usekomafont{skilllabel}#1 & \skillrule{#2}{#3} \\}
 %\newcommand*{\skill}[3]{\colorbox{skillbackground}{\usekomafont{skilllabel}#1} & \skillrule{#2}{#3} \\}
 %\newcommand*{\skill}[3]{\usekomafont{skilllabel}#1 & \skillrule{#2}{#3} \\}
 %\newcommand*{\languageskill}[4]{\cellcolor{skillbackground}\usekomafont{skilllabel}#1 & #2 & \skillrule{#3}{#4} \\}    
-
-%-----------------------------------------------------------
-% Command to set PDF metadata
-%-----------------------------------------------------------
-
-\newcommand*{\setmetadata}{
-	\hypersetup{
-		pdftitle={\thetitle:~\theauthor},
-		pdfsubject={\thetitle},
-		pdfauthor={\theauthor},
-		pdfkeywords={\thetitle, \theauthor}
-	}
-}

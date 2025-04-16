@@ -119,6 +119,8 @@ class CurriculumVitae:
     degrees: list[Degree]
     experience: list[Experience]
     skills: dict[str, Skill]
+    birthday: str = None
+    nationality: str = None
 
     @property
     def latex(self):
@@ -127,11 +129,14 @@ class CurriculumVitae:
             rf"\usepackage[{self.babel_language}]{{babel}}",
             "",
             rf"\author{{{self.name}}}",
+            rf"\birthday{{{self.birthday}}}",
+            rf"\nationality{{{self.nationality}}}",
             rf"{self.contact.latex}",
             "",
-            r"\setmetadata",
-            "",
             r"\begin{document}",
+            "",
+            r"\setmetadata",  # Has to be here!
+            "",
             r"\color{normal}",
             "",
             r"\maketitle",
@@ -184,7 +189,7 @@ class CurriculumVitae:
 
         _latex = "\n".join(_latex_lines)
 
-        return _latex.replace("&", "\&")
+        return _latex.replace("&", r"\&")
 
 
 def save(curriculum_vitae: CurriculumVitae, filename: str | Path, overwrite: bool = False, tex_replacements: list = None):
@@ -218,6 +223,8 @@ def load(filename: str | Path):
         "name": data["name"],
         "babel_language": data["babel_language"],
         "about_me": data["about_me"],
+        "birthday": data["birthday"],
+        "nationality": data["nationality"],
         "contact": load_unnested_dataclass_from_dict(Contact, data["contact"])
     }
 
