@@ -123,10 +123,43 @@ class CurriculumVitae:
     nationality: str = None
 
     @property
+    def babel(self):
+        return self.babel_language.split("-")[0]
+
+    @property
+    def locale(self):
+        try:
+            _locale = self.babel_language.split("-")[1]
+        except IndexError:
+            match self.babel:
+                case "english":
+                    _locale = "US"
+                case "german" | "ngerman":
+                    _locale = "DE"
+                case "french":
+                    _locale = "FR"
+
+        return _locale
+
+    @property
+    def decimal_separator(self):
+        try:
+            separator = self.babel_language.split("-")[1]
+        except IndexError:
+            match self.babel:
+                case "german" | "ngerman" | "french" | "spanish" | "italian" | "portuguese":
+                    separator = ","
+                case "english" | _:
+                    separator = "."
+
+        return separator
+
+    @property
     def latex(self):
         _latex_lines = [
             rf"\documentclass[DIV=18]{{medercv2025}}",
-            rf"\usepackage[{self.babel_language}]{{babel}}",
+            rf"\usepackage[{self.babel}]{{babel}}",
+            rf"\sisetup{{output-decimal-marker={{{self.decimal_separator}}}}}",
             "",
             rf"\author{{{self.name}}}",
             rf"\birthday{{{self.birthday}}}",

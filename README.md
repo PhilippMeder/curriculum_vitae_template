@@ -51,3 +51,5 @@ If you want to use a different language, you should add a set of translations in
 \DeclareTranslation{ChosenLanguage}{experience}{translation}
 \DeclareTranslation{ChosenLanguage}{grade}{translation}
 ```
+
+The decimal separator used by the `siunitx` package (e.g. in the `\grade` command) can be changed by expanding the `babel_langugage` entry, i.e. `"babel_language": "LanguagePassedToBabel-DecimalSeparator"`.

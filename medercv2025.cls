@@ -35,6 +35,10 @@
 % Language-dependent translations
 %-----------------------------------------------------------
 
+% For correct decimal separator, esp. in \grade
+\RequirePackage[detect-all=true]{siunitx}
+
+% For title translations
 \RequirePackage{translations}
 
 \DeclareTranslationFallback{documenttitle}{Curriculum Vitae}
@@ -209,7 +213,7 @@
 \newcommand*{\github}[1]{\renewcommand*{\thegithub}{#1}}
 
 \newcommand*{\thegradename}{\GetTranslation{grade}}
-\newcommand*{\grade}[1]{\thegradename:~#1}
+\newcommand*{\grade}[1]{\thegradename:~\num{#1}}
 
 \newcommand*{\theaboutmename}{\GetTranslation{aboutme}}
 
