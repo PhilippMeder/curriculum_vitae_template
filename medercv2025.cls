@@ -4,7 +4,7 @@
 %-----------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{medercv2025}[2025/04/14 Curriculum Vitae Template]
+\ProvidesClass{medercv2025}[2025/07/31 Curriculum Vitae Template]
 
 %-----------------------------------------------------------
 % Basic setup
@@ -16,6 +16,9 @@
 % Pass options to base class (move down if you provide options yourself)
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrartcl}}
 \ProcessOptions\relax
+
+% Set spacing
+\renewcommand*{\baselinestretch}{0.95}
 
 % For better tabular
 \RequirePackage{tabularx}
@@ -169,7 +172,7 @@
 			\vspace*{-1\ht\strutbox}\colorrule{\linewidth}{1pt}%
 		}%
 	}{%
-		\@hangfrom{\hskip #2#3}{#4}}% 
+		\@hangfrom{\hskip #2#3}{#4}}%
 }
 
 % No page number
@@ -263,10 +266,10 @@
 \tikz[remember picture,overlay] {%
 	\node[rectangle, fill=header, anchor=north, minimum width=\paperwidth, minimum height=3.5cm](header) at (current page.north){};%
 	\draw[frame, ultra thick] (header.south west) rectangle (header.south east);
-	\node[draw=none, anchor=west, shift=({0,-0.1cm})](picture) at (current page text area.north west) {\authorpicture{3cm}};%  
-%	\node[draw=none, shift=({0.9cm,0})](name) at (current page text area.north) {\usekomafont{title} \theauthor};% 
-	\node[draw=none, shift=({\leftcolumnwidth,0.2cm}), anchor=west](name) at (picture.west) {\usekomafont{title} \theauthor};% 
-	\node[draw=none, anchor=north west, shift=({-0.1cm,0})](info) at (name.south west) {\usekomafont{titleinfo} \authorinfo};% 
+	\node[draw=none, anchor=west, shift=({0,-0.1cm})](picture) at (current page text area.north west) {\authorpicture{3cm}};%
+%	\node[draw=none, shift=({0.9cm,0})](name) at (current page text area.north) {\usekomafont{title} \theauthor};%
+	\node[draw=none, shift=({\leftcolumnwidth,0.2cm}), anchor=west](name) at (picture.west) {\usekomafont{title} \theauthor};%
+	\node[draw=none, anchor=north west, shift=({-0.1cm,0})](info) at (name.south west) {\usekomafont{titleinfo} \authorinfo};%
 }%
 	\vspace{2cm}%
 }
@@ -321,7 +324,7 @@
 %	\begin{tabular}{ll}
 %		& \\
 %		\infoelement{\thebirthdayname}{\thebirthday}
-%		\infoelement{\theaddressname}{\theaddress}        
+%		\infoelement{\theaddressname}{\theaddress}
 %		\infoelement{\themailname}{\themail}
 %		\infoelement{\thephonename}{\thephone}
 %		\infoelement{\thegithubname}{\href{https://github.com/\thegithub}{\thegithub}}
@@ -333,7 +336,7 @@
 %		{\usekomafont{infolabel}\themailname} & \themail & &
 %		{\usekomafont{infolabel}\theaddressname} & \theaddress \\
 %		{\usekomafont{infolabel}\thegithubname} & \href{https://github.com/\thegithub}{\thegithub} & &
-%		{\usekomafont{infolabel}\thephonename} & \thephone 
+%		{\usekomafont{infolabel}\thephonename} & \thephone
 %	\end{tabularx}
 %}
 
@@ -346,4 +349,4 @@
 %\newcommand*{\skill}[3]{\cellcolor{skillbackground}\usekomafont{skilllabel}#1 & \skillrule{#2}{#3} \\}
 %\newcommand*{\skill}[3]{\colorbox{skillbackground}{\usekomafont{skilllabel}#1} & \skillrule{#2}{#3} \\}
 %\newcommand*{\skill}[3]{\usekomafont{skilllabel}#1 & \skillrule{#2}{#3} \\}
-%\newcommand*{\languageskill}[4]{\cellcolor{skillbackground}\usekomafont{skilllabel}#1 & #2 & \skillrule{#3}{#4} \\}    
+%\newcommand*{\languageskill}[4]{\cellcolor{skillbackground}\usekomafont{skilllabel}#1 & #2 & \skillrule{#3}{#4} \\}
